@@ -20,9 +20,6 @@ func NewPrometheusMetrics(db sqlx.DB) []PrometheusMetric {
 	for _, rejection := range NewPoolRejections(&db) {
 		metrics = append(metrics, rejection)
 	}
-	for _, queryRequest := range NewQueryRequests(&db) {
-		metrics = append(metrics, queryRequest)
-	}
 	for _, usage := range NewPoolUsage(&db) {
 		metrics = append(metrics, usage)
 	}
